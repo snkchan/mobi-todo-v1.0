@@ -9,11 +9,12 @@ export const postUserSignin = async (input: { id: string; pw: string }) => {
       email: input.id,
       pw: input.pw,
     })
-    localStorage.setItem(AUTH_STORAGE, response.data.token)
+    if (response) {
+      localStorage.setItem(AUTH_STORAGE, response.data.token)
+    }
     return response
-  } catch (req) {
-    // if (req.response.status === 401 || req.response.status === 402)
-    //   alert("로그인실패 다시하세요")
+  } catch (err) {
+    console.log(err)
   }
 }
 
