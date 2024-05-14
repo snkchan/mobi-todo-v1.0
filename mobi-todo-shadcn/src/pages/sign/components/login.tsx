@@ -1,5 +1,5 @@
 // import { PAGE_TODO } from "@/constants"
-import { schemeIdAndPw } from "@/lib/schemes/scheme-id-and-pw"
+
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useForm } from "react-hook-form"
 // import { useNavigate } from "react-router-dom"
@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { postUserSignin } from "../sign.func"
 import type { LoginDataType } from "../sign.type"
 import { ErrorField, LabelInput } from "@/components"
+import { schemaLogin } from "@/lib/schemes"
 
 export const Login = () => {
   // const navi = useNavigate()
@@ -17,7 +18,7 @@ export const Login = () => {
     formState: { errors, isValid },
   } = useForm<LoginDataType>({
     mode: "onChange",
-    resolver: yupResolver(schemeIdAndPw),
+    resolver: yupResolver(schemaLogin),
   })
 
   const onSubmitSingin = async ({ email, password }: LoginDataType) => {

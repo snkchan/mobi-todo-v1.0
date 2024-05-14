@@ -1,11 +1,11 @@
 // import { PAGE_TODO } from "@/constants"
-import { schemeIdAndPwAndPWC } from "@/lib/schemes/scheme-id-and-pw"
+import { schemaSignUp } from "@/lib/schemes/scheme"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useForm } from "react-hook-form"
 // import { useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
-import { postUserSignin } from "../sign.func"
-import type { LoginDataType, SignUpDataType } from "../sign.type"
+import { postUserSignUp } from "../sign.func"
+import type { SignUpDataType } from "../sign.type"
 import { ErrorField, LabelInput } from "@/components"
 
 export const SignUp = () => {
@@ -15,12 +15,20 @@ export const SignUp = () => {
     formState: { errors, isValid },
   } = useForm<SignUpDataType>({
     mode: "onChange",
-    resolver: yupResolver(schemeIdAndPwAndPWC),
+    resolver: yupResolver(schemaSignUp),
   })
 
-  const onSubmitSingin = async ({ email, password }: LoginDataType) => {
-    const result = await postUserSignin({ email: email, password: password })
-    if (result) return alert("로그인성공") // 임시로 navi(PAGE_TODO) 로수정하면됨
+  const onSubmitSingin = async ({
+    email,
+    password,
+    passwordConfirm,
+  }: SignUpDataType) => {
+    const result = await postUserSignUp({
+      email: email,
+      password: password,
+      passwordConfirm: passwordConfirm,
+    })
+    if (result) return alert("회원가입성공") // 임시로 navi(PAGE_TODO) 로수정하면됨
     alert("로그인정보를 확인해주세요 모달")
   }
   return (
