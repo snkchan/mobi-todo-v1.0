@@ -1,5 +1,5 @@
-import * as yup from 'yup'
-import { ERRORS } from '../consts/system'
+import { ERRORS } from "@/constants"
+import * as yup from "yup"
 
 export const schemeTitleAndContent = yup.object().shape({
   TITLE: yup.string().required(ERRORS.message.titleRequired),

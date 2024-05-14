@@ -6,10 +6,8 @@ export const schemeIdAndPw = yup.object().shape({
     .string()
     .email(ERRORS.message.id)
     .required(ERRORS.message.idRequired),
-  password: yup
+  pw: yup
     .string()
     .matches(ERRORS.pattern.password, ERRORS.message.password)
     .required(ERRORS.message.passwordRequired),
 })
-
-export type schemeIdAndPwType = keyof typeof schemeIdAndPw

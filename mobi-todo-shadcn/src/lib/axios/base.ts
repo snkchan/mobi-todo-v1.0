@@ -1,6 +1,7 @@
 import axios, { type AxiosRequestConfig, type AxiosResponse } from "axios"
-import { getUserRefresh } from "./user"
+
 import { AUTH_STORAGE, PAGE_LOGIN } from "@/constants"
+import { getUserRefresh } from "@/pages/sign/sign.func"
 
 const axiosConfig: AxiosRequestConfig = {
   baseURL: import.meta.env.VITE_TODP_API_BASE_URL,

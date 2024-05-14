@@ -16,6 +16,9 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+    screens: {
+      SM: { max: "430px" },
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -74,4 +77,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-};
+}
