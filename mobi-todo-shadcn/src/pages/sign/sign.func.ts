@@ -1,30 +1,28 @@
 import { API_LOGIN, API_REFRESH, API_SIGN_UP, AUTH_STORAGE } from "@/constants"
 import { axiosInstance } from "@/lib/axios"
-import { SignDataType } from "./sign.type"
+import { LoginDataType } from "./sign.type"
 
-export const postUserSignin = async (input: SignDataType) => {
+export const postUserSignin = async ({ email, password }: LoginDataType) => {
   try {
     const response = await axiosInstance.post(API_LOGIN, {
-      email: input.email,
-      pw: input.pw,
+      email: email,
+      pw: password,
     })
     if (response) {
       localStorage.setItem(AUTH_STORAGE, response.data.token)
     }
-    console.log(response)
     return response
   } catch (err) {
     console.log(err)
   }
 }
 
-export const postUserSignUp = async (input: SignDataType) => {
+export const postUserSignUp = async ({ email, password }: LoginDataType) => {
   try {
     const response = await axiosInstance.post(API_SIGN_UP, {
-      email: input.email,
-      pw: input.pw,
+      email: email,
+      pw: password,
     })
-    console.log(response)
     return response
   } catch (err) {
     console.log(err)

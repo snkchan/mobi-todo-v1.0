@@ -6,7 +6,22 @@ export const schemeIdAndPw = yup.object().shape({
     .string()
     .email(ERRORS.message.id)
     .required(ERRORS.message.idRequired),
-  pw: yup
+  password: yup
+    .string()
+    .matches(ERRORS.pattern.password, ERRORS.message.password)
+    .required(ERRORS.message.passwordRequired),
+})
+
+export const schemeIdAndPwAndPWC = yup.object().shape({
+  email: yup
+    .string()
+    .email(ERRORS.message.id)
+    .required(ERRORS.message.idRequired),
+  password: yup
+    .string()
+    .matches(ERRORS.pattern.password, ERRORS.message.password)
+    .required(ERRORS.message.passwordRequired),
+  passwordConfirm: yup
     .string()
     .matches(ERRORS.pattern.password, ERRORS.message.password)
     .required(ERRORS.message.passwordRequired),

@@ -1,1 +1,2 @@
-export type SignDataType = Record<"email" | "pw", string>
+export type LoginDataType = Record<"email" | "password", string>
+export type SignUpDataType = LoginDataType & { passwordConfirm: string }
