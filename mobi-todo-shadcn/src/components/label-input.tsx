@@ -1,6 +1,6 @@
 import { Input } from "@/components/ui/input"
 import { Label } from "@radix-ui/react-label"
-import { LoginDataType } from "../sign.type"
+import { LoginDataType } from "../pages/sign/sign.type"
 import type { Path, UseFormRegister } from "react-hook-form"
 import { capitalize } from "@/func/string"
 

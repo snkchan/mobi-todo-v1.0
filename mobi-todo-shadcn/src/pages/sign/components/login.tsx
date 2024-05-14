@@ -1,12 +1,13 @@
 // import { PAGE_TODO } from "@/constants"
 import { schemeIdAndPw } from "@/lib/schemes/scheme-id-and-pw"
 import { yupResolver } from "@hookform/resolvers/yup"
-import { type FieldErrors, useForm } from "react-hook-form"
+import { useForm } from "react-hook-form"
 // import { useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { postUserSignin } from "../sign.func"
 import type { LoginDataType } from "../sign.type"
-import { LabelInput } from "./label-input"
+import { ErrorField, LabelInput } from "@/components"
+
 export const Login = () => {
   // const navi = useNavigate()
 
@@ -36,17 +37,5 @@ export const Login = () => {
         Login
       </Button>
     </form>
-  )
-}
-
-const ErrorField = ({ errors }: { errors: FieldErrors<LoginDataType> }) => {
-  return (
-    <div className="h-6 w-full">
-      {errors.email || errors.password ? (
-        <p className="text-[10px] text-red-600">
-          *{errors.email?.message || errors.password?.message}
-        </p>
-      ) : null}
-    </div>
   )
 }

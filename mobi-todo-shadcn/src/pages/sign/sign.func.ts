@@ -1,6 +1,6 @@
 import { API_LOGIN, API_REFRESH, API_SIGN_UP, AUTH_STORAGE } from "@/constants"
 import { axiosInstance } from "@/lib/axios"
-import { LoginDataType } from "./sign.type"
+import { LoginDataType, SignUpDataType } from "./sign.type"
 
 export const postUserSignin = async ({ email, password }: LoginDataType) => {
   try {
@@ -17,7 +17,7 @@ export const postUserSignin = async ({ email, password }: LoginDataType) => {
   }
 }
 
-export const postUserSignUp = async ({ email, password }: LoginDataType) => {
+export const postUserSignUp = async ({ email, password }: SignUpDataType) => {
   try {
     const response = await axiosInstance.post(API_SIGN_UP, {
       email: email,
