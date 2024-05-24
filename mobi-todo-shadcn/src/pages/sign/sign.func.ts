@@ -1,6 +1,6 @@
 import { API_LOGIN, API_REFRESH, API_SIGN_UP, AUTH_STORAGE } from "@/constants"
 import { axiosInstance } from "@/lib/axios"
-import { LoginDataType, SignUpDataType } from "./sign.type"
+import { LoginDataType } from "./sign.type"
 
 export const postUserSignin = async ({ email, password }: LoginDataType) => {
   try {
@@ -39,19 +39,4 @@ export const getUserRefresh = async () => {
   } catch (err) {
     console.log(err)
   }
-}
-
-export const onSubmitSingin = async ({ email, password }: LoginDataType) => {
-  const result = await postUserSignin({ email: email, password: password })
-  if (result) return alert("로그인성공") // 임시로 navi(PAGE_TODO) 로수정하면됨
-  alert("로그인정보를 확인해주세요 모달")
-}
-
-export const onSubmitSingUp = async ({ email, password }: SignUpDataType) => {
-  const result = await postUserSignUp({
-    email: email,
-    password: password,
-  })
-  if (result) return alert("회원가입성공") // 임시로 navi(PAGE_TODO) 로수정하면됨
-  alert("로그인정보를 확인해주세요 모달")
 }
